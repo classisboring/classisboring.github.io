@@ -14,13 +14,14 @@
 
         /* Base Styling */
         body {
-            background-color: #1C1C1C;
+            background-color: #121212;
             color: #E0E0E0;
             font-family: Arial, sans-serif;
             text-align: center;
             margin: 0;
             padding: 0;
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
         h1 {
@@ -31,42 +32,61 @@
         }
 
         .container {
-            width: 80%;
+            width: 90%;
             max-width: 700px;
             margin: 0 auto;
-            padding: 10px;
+            padding: 20px;
+        }
+
+        .intro {
+            font-size: 1.1em;
+            color: #B0B0B0;
+            margin-bottom: 30px;
         }
 
         .dropdown {
-            background-color: #333;
+            background: linear-gradient(145deg, #333, #222);
             color: #FF6347;
-            padding: 15px;
+            padding: 15px 20px;
             margin: 15px 0;
             font-size: 1.2em;
             text-align: left;
             cursor: pointer;
             border: none;
             outline: none;
-            transition: background-color 0.3s;
+            border-radius: 8px;
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+            transition: background-color 0.3s, transform 0.1s;
         }
 
         .dropdown:hover {
             background-color: #444;
+            transform: scale(1.02);
         }
 
         .content {
             display: none;
-            background-color: #222;
-            padding: 15px;
+            background-color: #1A1A1A;
+            color: #E0E0E0;
+            padding: 15px 20px;
             margin-top: -5px;
             border-left: 4px solid #FF6347;
             font-size: 1em;
             text-align: left;
             line-height: 1.5;
+            border-radius: 0 0 8px 8px;
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+            animation: fadeIn 0.3s ease-in-out;
         }
 
         .content p {
             margin: 5px 0;
+        }
+
+        /* Fade In Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
     </style>
     <script>
@@ -83,41 +103,52 @@
 <body>
     <div class="container">
         <h1>CSF Cryptid Profiles</h1>
-        <p>Detailed profiles of entities secured and researched by the Cryptid Securement Foundation. Information herein is for internal review only.</p>
+        <p class="intro">In-depth profiles of cryptids researched by the Cryptid Securement Foundation. For internal review and analysis only.</p>
 
-        <button class="dropdown" onclick="toggleContent('mothman')">Mothman</button>
+        <button class="dropdown" onclick="toggleContent('mothman')">MTH-1</button>
         <div class="content" id="mothman">
+            <p><strong>Common Name<strong> Mothman<p>
             <p><strong>Date of First Sighting:</strong> November 15, 1966</p>
             <p><strong>Kill Count:</strong> 46 (linked to Silver Bridge Collapse)</p>
             <p><strong>Description:</strong> A humanoid figure with large wings and glowing red eyes. Known for sightings in Point Pleasant, WV, and often associated with imminent disaster.</p>
         </div>
 
-        <button class="dropdown" onclick="toggleContent('bigfoot')">Bigfoot</button>
+        <button class="dropdown" onclick="toggleContent('bigfoot')">BGFT-1</button>
         <div class="content" id="bigfoot">
+             <p><strong>Common Name<strong> Bigfoot<p>
             <p><strong>Date of First Sighting:</strong> 1958 (modern accounts)</p>
             <p><strong>Kill Count:</strong> 0 (no verified kills)</p>
             <p><strong>Description:</strong> A large, ape-like creature with dense fur, primarily sighted in forested areas of North America. Known for elusive behavior and unconfirmed sightings.</p>
         </div>
 
-        <button class="dropdown" onclick="toggleContent('wendigo')">Wendigo</button>
+        <button class="dropdown" onclick="toggleContent('wendigo')">WNDG-72</button>
         <div class="content" id="wendigo">
+            <p><strong>Common Name<strong> Wendigo<p>
             <p><strong>Date of First Sighting:</strong> Pre-colonial Native American lore</p>
             <p><strong>Kill Count:</strong> Numerous (according to folklore)</p>
             <p><strong>Description:</strong> A mythological creature symbolizing insatiable hunger, said to embody cannibalistic spirits. Commonly described as skeletal, with sunken eyes and rotting flesh.</p>
         </div>
 
-        <button class="dropdown" onclick="toggleContent('loch_ness_monster')">Loch Ness Monster</button>
+        <button class="dropdown" onclick="toggleContent('loch_ness_monster')">LNM-1</button>
         <div class="content" id="loch_ness_monster">
+             <p><strong>Common Name<strong> Loch Ness Monster<p>
             <p><strong>Date of First Sighting:</strong> August 22, 565 AD (recorded by Saint Columba)</p>
             <p><strong>Kill Count:</strong> Unknown (no confirmed incidents)</p>
             <p><strong>Description:</strong> Known as “Nessie,” an aquatic creature with a long neck and a hump-like back, reportedly seen in Loch Ness, Scotland. Sightings remain unverified.</p>
         </div>
 
-        <button class="dropdown" onclick="toggleContent('jersey_devil')">Jersey Devil</button>
+        <button class="dropdown" onclick="toggleContent('jersey_devil')">DVL-1</button>
         <div class="content" id="jersey_devil">
             <p><strong>Date of First Sighting:</strong> 1735 (according to folklore)</p>
             <p><strong>Kill Count:</strong> Numerous livestock (per local legends)</p>
             <p><strong>Description:</strong> A creature with a goat’s head, bat-like wings, hooves, and a long tail. Known for haunting the Pine Barrens of NJ and emitting a piercing scream.</p>
+        </div>
+                <button class="dropdown" onclick="toggleContent('xisw1')">XISW-1</button>
+        <div class="content" id="xisw1">
+            <p><strong>Date of First Sighting:</strong> 2000</p>
+            <p><strong>Date of Death</strong> 3/6/2001</p>
+            <p><strong>Kill Count:</strong> 13</p>
+            <p><strong>Description:</strong> Average build humanoid creature with red glowing eyes. Seems to have the ability to fly. Known to induce psychological torment before kill.</p>
         </div>
     </div>
 </body>
