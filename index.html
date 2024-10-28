@@ -53,8 +53,8 @@
     const messageElement = document.getElementById('message');
 
     if (username === 'steve' && password === 'dogs') {
-      messageElement.textContent = 'Login successful!';
-      messageElement.className = 'message success';
+      // Redirect to welcome page on successful login
+      window.location.href = 'https://yourusername.github.io/login-example/welcome.html';
     } else {
       messageElement.textContent = 'Incorrect username or password.';
       messageElement.className = 'message error';
@@ -64,3 +64,4 @@
 
 </body>
 </html>
+
