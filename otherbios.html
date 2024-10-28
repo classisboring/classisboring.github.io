@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSF Cryptid Profiles</title>
+    <style>
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Base Styling */
+        body {
+            background-color: #1C1C1C;
+            color: #E0E0E0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        h1 {
+            color: #FF6347;
+            font-size: 2.5em;
+            margin: 20px 0;
+            font-weight: 600;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 10px;
+        }
+
+        .dropdown {
+            background-color: #333;
+            color: #FF6347;
+            padding: 15px;
+            margin: 15px 0;
+            font-size: 1.2em;
+            text-align: left;
+            cursor: pointer;
+            border: none;
+            outline: none;
+            transition: background-color 0.3s;
+        }
+
+        .dropdown:hover {
+            background-color: #444;
+        }
+
+        .content {
+            display: none;
+            background-color: #222;
+            padding: 15px;
+            margin-top: -5px;
+            border-left: 4px solid #FF6347;
+            font-size: 1em;
+            text-align: left;
+            line-height: 1.5;
+        }
+
+        .content p {
+            margin: 5px 0;
+        }
+    </style>
+    <script>
+        function toggleContent(id) {
+            var content = document.getElementById(id);
+            if (content.style.display === "none" || content.style.display === "") {
+                content.style.display = "block";
+            } else {
+                content.style.display = "none";
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>CSF Cryptid Profiles</h1>
+        <p>Detailed profiles of entities secured and researched by the Cryptid Securement Foundation. Information herein is for internal review only.</p>
+
+        <button class="dropdown" onclick="toggleContent('mothman')">Mothman</button>
+        <div class="content" id="mothman">
+            <p><strong>Date of First Sighting:</strong> November 15, 1966</p>
+            <p><strong>Kill Count:</strong> 46 (linked to Silver Bridge Collapse)</p>
+            <p><strong>Description:</strong> A humanoid figure with large wings and glowing red eyes. Known for sightings in Point Pleasant, WV, and often associated with imminent disaster.</p>
+        </div>
+
+        <button class="dropdown" onclick="toggleContent('bigfoot')">Bigfoot</button>
+        <div class="content" id="bigfoot">
+            <p><strong>Date of First Sighting:</strong> 1958 (modern accounts)</p>
+            <p><strong>Kill Count:</strong> 0 (no verified kills)</p>
+            <p><strong>Description:</strong> A large, ape-like creature with dense fur, primarily sighted in forested areas of North America. Known for elusive behavior and unconfirmed sightings.</p>
+        </div>
+
+        <button class="dropdown" onclick="toggleContent('wendigo')">Wendigo</button>
+        <div class="content" id="wendigo">
+            <p><strong>Date of First Sighting:</strong> Pre-colonial Native American lore</p>
+            <p><strong>Kill Count:</strong> Numerous (according to folklore)</p>
+            <p><strong>Description:</strong> A mythological creature symbolizing insatiable hunger, said to embody cannibalistic spirits. Commonly described as skeletal, with sunken eyes and rotting flesh.</p>
+        </div>
+
+        <button class="dropdown" onclick="toggleContent('loch_ness_monster')">Loch Ness Monster</button>
+        <div class="content" id="loch_ness_monster">
+            <p><strong>Date of First Sighting:</strong> August 22, 565 AD (recorded by Saint Columba)</p>
+            <p><strong>Kill Count:</strong> Unknown (no confirmed incidents)</p>
+            <p><strong>Description:</strong> Known as “Nessie,” an aquatic creature with a long neck and a hump-like back, reportedly seen in Loch Ness, Scotland. Sightings remain unverified.</p>
+        </div>
+
+        <button class="dropdown" onclick="toggleContent('jersey_devil')">Jersey Devil</button>
+        <div class="content" id="jersey_devil">
+            <p><strong>Date of First Sighting:</strong> 1735 (according to folklore)</p>
+            <p><strong>Kill Count:</strong> Numerous livestock (per local legends)</p>
+            <p><strong>Description:</strong> A creature with a goat’s head, bat-like wings, hooves, and a long tail. Known for haunting the Pine Barrens of NJ and emitting a piercing scream.</p>
+        </div>
+    </div>
+</body>
+</html>
