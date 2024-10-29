@@ -112,14 +112,19 @@
     <script>
         let inputSequence = [];
 
-        // Hidden code parts in an obfuscated way
+  
         const part1 = 100;
         const part2 = 55;
-        const part3 = 200;
+        const part3 = 20000;
 
-        // Function to check if the input sequence matches the hidden code (200155)
-        function isCorrectCode(sequence) {
-            const combinedCode = part3 + part1 + part2; // 200 + 100 + 55 = 200155
+//hey stop trying to look for the code
+        
+//hey stop trying to look for the code
+        
+//hey stop trying to look for the code
+        //you can find it on the site if you can be bother to look
+        function okcool(sequence) {
+            const combinedCode = part3 + part1 + part2;
             return sequence.join('') === combinedCode.toString();
         }
 
@@ -139,7 +144,7 @@
 
         function checkCode() {
             const status = document.getElementById("status");
-            if (isCorrectCode(inputSequence)) {
+            if (okcool(inputSequence)) {
                 status.innerText = "Access Granted";
                 status.className = "status success";
                 setTimeout(() => {
