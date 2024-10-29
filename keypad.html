@@ -18,24 +18,24 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: #f0f2f5;
-            color: #333;
+            background-color: #1a1a1a;
+            color: #fff;
         }
 
         /* Container styling */
         .keypad-container {
-            width: 350px;
-            background-color: #ffffff;
+            width: 300px;
+            background-color: #333;
             padding: 20px;
             border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
             text-align: center;
         }
 
         /* Display panel */
         #display {
-            background-color: #e0e0e0;
-            color: #333;
+            background-color: #444;
+            color: #ff3333;
             font-size: 1.5em;
             padding: 15px;
             border-radius: 5px;
@@ -54,9 +54,9 @@
 
         /* Button styling */
         .button {
-            background-color: #007bff;
+            background-color: #550000;
             color: #ffffff;
-            font-size: 1.3em;
+            font-size: 1.2em;
             padding: 15px;
             border: none;
             border-radius: 5px;
@@ -65,7 +65,7 @@
         }
 
         .button:hover {
-            background-color: #0056b3;
+            background-color: #cc3333;
             transform: scale(1.05);
         }
 
@@ -81,11 +81,11 @@
         }
 
         .status.success {
-            color: #28a745;
+            color: #33ff33;
         }
 
         .status.error {
-            color: #dc3545;
+            color: #ff3333;
         }
     </style>
 </head>
@@ -111,8 +111,17 @@
 
     <script>
         let inputSequence = [];
-        const hiddenCodeArray = [8, 2, 7, 0, 1, 5, 5, 3, 6, 4]; //no peeking. you can find the code it somewhere else.
-        const correctSequence = [hiddenCodeArray[1], hiddenCodeArray[3], hiddenCodeArray[4], hiddenCodeArray[5], hiddenCodeArray[6]];
+
+        // Hidden code parts in an obfuscated way
+        const part1 = 100;
+        const part2 = 55;
+        const part3 = 200;
+
+        // Function to check if the input sequence matches the hidden code (200155)
+        function isCorrectCode(sequence) {
+            const combinedCode = part3 + part1 + part2; // 200 + 100 + 55 = 200155
+            return sequence.join('') === combinedCode.toString();
+        }
 
         function pressButton(num) {
             if (inputSequence.length < 6) {
@@ -130,10 +139,10 @@
 
         function checkCode() {
             const status = document.getElementById("status");
-            if (inputSequence.length === 6 && JSON.stringify(inputSequence) === JSON.stringify(correctSequence)) {
+            if (isCorrectCode(inputSequence)) {
                 status.innerText = "Access Granted";
                 status.className = "status success";
-                setTimeout(() => window.location.href = "welcome.html", 1000); // Redirect with a delay
+                setTimeout(() => window.location.href = "success.html", 1000); // Redirect with a delay
             } else {
                 status.innerText = "Access Denied";
                 status.className = "status error";
