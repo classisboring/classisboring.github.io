@@ -142,13 +142,16 @@
             if (isCorrectCode(inputSequence)) {
                 status.innerText = "Access Granted";
                 status.className = "status success";
-                setTimeout(() => window.location.href = "success.html", 1000); // Redirect with a delay
+                setTimeout(() => {
+                    window.location.href = "success.html"; // Redirect to success page
+                }, 1000);
             } else {
                 status.innerText = "Access Denied";
                 status.className = "status error";
-                clearDisplay();
+                setTimeout(clearDisplay, 1000); // Clear display after 1 second
             }
         }
     </script>
 </body>
 </html>
+
