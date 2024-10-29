@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Keypad</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #1C1C1C;
+            color: #FFF;
+            font-family: Arial, sans-serif;
+        }
+
+        .keypad {
+            display: grid;
+            grid-template-columns: repeat(3, 60px);
+            gap: 10px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .button {
+            background-color: #333;
+            color: #FFF;
+            font-size: 1.5em;
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #555;
+        }
+
+        #display {
+            grid-column: span 3;
+            background-color: #222;
+            color: #00FF00;
+            font-size: 1.2em;
+            padding: 10px;
+            margin-bottom: 10px;
+            text-align: right;
+            border-radius: 5px;
+        }
+
+        .status {
+            text-align: center;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="keypad-container">
+        <div id="display">Enter Code</div>
+        <div class="keypad">
+            <button class="button" onclick="pressButton(1)">1</button>
+            <button class="button" onclick="pressButton(2)">2</button>
+            <button class="button" onclick="pressButton(3)">3</button>
+            <button class="button" onclick="pressButton(4)">4</button>
+            <button class="button" onclick="pressButton(5)">5</button>
+            <button class="button" onclick="pressButton(6)">6</button>
+            <button class="button" onclick="pressButton(7)">7</button>
+            <button class="button" onclick="pressButton(8)">8</button>
+            <button class="button" onclick="pressButton(9)">9</button>
+            <button class="button" onclick="pressButton(0)">0</button>
+            <button class="button" onclick="clearDisplay()">C</button>
+            <button class="button" onclick="checkCode()">OK</button>
+        </div>
+        <div id="status" class="status"></div>
+    </div>
+
+    <script>
+        let inputSequence = [];
+        const hiddenCodeArray = [8, 2, 7, 0, 1, 5, 5, 3, 6, 4]; //no peaking... you'll find it in another file.
+        const correctSequence = [hiddenCodeArray[1], hiddenCodeArray[3], hiddenCodeArray[4], hiddenCodeArray[5], hiddenCodeArray[6]];
+
+        function pressButton(num) {
+            if (inputSequence.length < 6) {
+                inputSequence.push(num);
+                document.getElementById("display").innerText = inputSequence.join('');
+            }
+        }
+
+        function clearDisplay() {
+            inputSequence = [];
+            document.getElementById("display").innerText = "Enter Code";
+            document.getElementById("status").innerText = "";
+        }
+
+        function checkCode() {
+            if (inputSequence.length === 6 && JSON.stringify(inputSequence) === JSON.stringify(correctSequence)) {
+                document.getElementById("status").innerText = "Access Granted";
+                document.getElementById("status").style.color = "green";
+            } else {
+                document.getElementById("status").innerText = "Access Denied";
+                document.getElementById("status").style.color = "red";
+                clearDisplay();
+            }
+        }
+    </script>
+</body>
+</html>
