@@ -68,6 +68,7 @@
             transform: scale(1);
         }
 
+  
         .status {
             margin-top: 15px;
             font-size: 1.1em;
@@ -102,11 +103,14 @@
         </div>
         <div id="status" class="status"></div>
     </div>
+    
+ 
 
     <script>
         let inputSequence = [];
 
      
+  //LET ME IN
         const maintenanceCode = "113232"; 
         const emergencyOverrideCode = "523432"; 
         const defaultAccessKey = "937455"; 
@@ -123,8 +127,9 @@
                 setTimeout(clearDisplay, 1000);
             }
         }
+  //LET ME IN
 
-  
+  //LET ME IN
         function generateAccessCode() {
             const baseCode = 371986;
             const modifiers = [1, 0, 0, 0, 1, 2];
@@ -142,14 +147,16 @@
                 document.getElementById("display").innerText = inputSequence.join('');
             }
         }
-
+//LET ME IN
         function clearDisplay() {
             inputSequence = [];
             document.getElementById("display").innerText = "Enter Code";
             document.getElementById("status").innerText = "";
             document.getElementById("status").className = "status";
         }
-
+        
+  //LET ME IN
+//LET ME IN
         function checkCode() {
             validateEmergencyCode(); 
             resetToDefaultAccess(); 
@@ -168,7 +175,8 @@
             }
         }
 
-        
+  //LET ME IN
+        //LET ME IN
         function legacyAccessValidation() {
             
             const legacyCode = "349823";
@@ -181,6 +189,7 @@
         };
 
 
+  //LET ME IN
         function verifyAccessLevel() {
             if (legacyAccessValidation()) {
                 document.getElementById("status").innerText = "Legacy Code Accepted";
@@ -190,7 +199,10 @@
                 setTimeout(clearDisplay, 1000);
             }
         }
+        
+  //LET ME IN
 
+  //I WILL FIND HIM
     </script>
 </body>
 </html>
