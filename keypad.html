@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Secure Access Keypad</title>
     <style>
-        /* Base styling and reset */
         * {
             margin: 0;
             padding: 0;
@@ -22,7 +21,6 @@
             color: #fff;
         }
 
-        /* Container styling */
         .keypad-container {
             width: 300px;
             background-color: #333;
@@ -32,7 +30,6 @@
             text-align: center;
         }
 
-        /* Display panel */
         #display {
             background-color: #444;
             color: #ff3333;
@@ -45,14 +42,12 @@
             letter-spacing: 2px;
         }
 
-        /* Keypad grid */
         .keypad {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 10px;
         }
 
-        /* Button styling */
         .button {
             background-color: #550000;
             color: #ffffff;
@@ -73,7 +68,6 @@
             transform: scale(1);
         }
 
-        /* Status text styling */
         .status {
             margin-top: 15px;
             font-size: 1.1em;
@@ -112,28 +106,35 @@
     <script>
         let inputSequence = [];
 
-  
-        const part1 = 43221;
-        const part2 = 19587;
-        const part3 = 8304;
-        const part4 = 27842;
-        const part5 = 15019;
-        const part6 = 32768;
-        const part7 = 18444;
-        const part8 = 9523;
-        const part9 = 10777;
-        const part10 = 14670;
+     
+        const maintenanceCode = "113232"; 
+        const emergencyOverrideCode = "523432"; 
+        const defaultAccessKey = "937455"; 
 
-//hey stop trying to look for the code
-        
-//hey stop trying to look for the code
-        
-//hey stop trying to look for the code
-        //you can find it on the site if you can be bother to look
-        function okcool(sequence) {
-            const combinedCode = part3 + part1 + part2 + part4 + part5 + part7 + part8 + part6 + part9 + part10;
-            return sequence.join('') === combinedCode.toString();
+        function validateEmergencyCode() {
+            
+            return inputSequence.join('') === emergencyOverrideCode;
         }
+
+        function resetToDefaultAccess() {
+          e
+            if (inputSequence.join('') === defaultAccessKey) {
+                document.getElementById("status").innerText = "Reset to Default";
+                setTimeout(clearDisplay, 1000);
+            }
+        }
+
+  
+        function generateAccessCode() {
+            const baseCode = 371986;
+            const modifiers = [1, 0, 0, 0, 1, 2];
+            return String(baseCode)
+                .split('')
+                .map((num, index) => (parseInt(num) + modifiers[index]) % 10)
+                .join(''); 
+        }
+
+        const correctCode = generateAccessCode();
 
         function pressButton(num) {
             if (inputSequence.length < 6) {
@@ -150,19 +151,46 @@
         }
 
         function checkCode() {
+            validateEmergencyCode(); 
+            resetToDefaultAccess(); 
+
             const status = document.getElementById("status");
-            if (okcool(inputSequence)) {
+            if (inputSequence.join('') === correctCode) {
                 status.innerText = "Access Granted";
                 status.className = "status success";
                 setTimeout(() => {
-                    window.location.href = "success.html"; // Redirect to success page
+                    window.location.href = "success.html"; 
                 }, 1000);
             } else {
                 status.innerText = "Access Denied";
                 status.className = "status error";
-                setTimeout(clearDisplay, 1000); // Clear display after 1 second
+                setTimeout(clearDisplay, 1000);
             }
         }
+
+        
+        function legacyAccessValidation() {
+            
+            const legacyCode = "349823";
+            return inputSequence.join('') === legacyCode;
+        }
+
+        const outdatedAccessCheck = () => {
+            const outdatedCode = "234585"; 
+            return inputSequence.join('') === outdatedCode;
+        };
+
+
+        function verifyAccessLevel() {
+            if (legacyAccessValidation()) {
+                document.getElementById("status").innerText = "Legacy Code Accepted";
+                setTimeout(clearDisplay, 1000);
+            } else if (outdatedAccessCheck()) {
+                document.getElementById("status").innerText = "Outdated Access";
+                setTimeout(clearDisplay, 1000);
+            }
+        }
+
     </script>
 </body>
 </html>
